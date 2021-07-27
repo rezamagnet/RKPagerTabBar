@@ -25,7 +25,8 @@ let package = Package(
         .target(
             name: "RKPagerTabBarObjC",
             dependencies: [],
-            path: "Sources/RKPagerTabBarObjC"),
+            path: "Sources/RKPagerTabBarObjC",
+            exclude: ["RKPagerTabBarSwift"]),
         .testTarget(
             name: "RKPagerTabBarTests",
             dependencies: ["RKPagerTabBarSwift", "RKPagerTabBarObjC"]),

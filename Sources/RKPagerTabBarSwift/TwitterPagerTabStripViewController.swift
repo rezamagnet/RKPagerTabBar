@@ -23,6 +23,7 @@
 // THE SOFTWARE.
 
 import UIKit
+import RKPagerTabBarObjC
 
 public struct TwitterPagerTabStripSettings {
 
@@ -213,7 +214,7 @@ open class TwitterPagerTabStripViewController: PagerTabStripViewController, Page
         pageControl.currentPage = currentIndex
         
         
-        let viewSize = pageControl.sizeForNumberOfPages(pageCount: childTitleLabels.count)
+        let viewSize = pageControl.sizeForNumber(ofPages: childTitleLabels.count)
         let originX = distance - viewSize.width / 2
         pageControl.frame = CGRect(x: originX, y: navBarHeight - 10, width: viewSize.width, height: viewSize.height)
     }
