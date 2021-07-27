@@ -52,6 +52,7 @@ class ViewController: ButtonBarPagerTabStripViewController {
     }
 }
 
+// MARK: -Conform to IndicatorInfoProvider for children view controllers
 class TestViewController: UIViewController, IndicatorInfoProvider {
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
@@ -68,5 +69,4 @@ class TestViewController: UIViewController, IndicatorInfoProvider {
 
 ```
 
-Walkthrough
 
