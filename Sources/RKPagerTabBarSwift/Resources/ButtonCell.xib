@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zg4-fX-zUF" customClass="ButtonBarViewCell" customModule="XLPagerTabStrip" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="zg4-fX-zUF" customClass="ButtonBarViewCell" customModule="RKPagerTabBarSwift">
             <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -38,6 +38,10 @@
                 <constraint firstItem="s7f-rk-sQl" firstAttribute="centerY" secondItem="zg4-fX-zUF" secondAttribute="centerY" id="ZeP-6I-AXE"/>
                 <constraint firstItem="s7f-rk-sQl" firstAttribute="centerX" secondItem="zg4-fX-zUF" secondAttribute="centerX" id="c15-bZ-hPG"/>
             </constraints>
+            <connections>
+                <outlet property="imageView" destination="tFG-yJ-6Th" id="bnB-Er-eJn"/>
+                <outlet property="label" destination="s7f-rk-sQl" id="zpC-Eg-W81"/>
+            </connections>
             <point key="canvasLocation" x="307" y="541"/>
         </collectionViewCell>
     </objects>
