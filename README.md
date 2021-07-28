@@ -1,6 +1,10 @@
 
 # RKPagerTabBar
 
+<p align="center">
+<img src="Example/1.png" alt="RKPagerTabBar" title="RKPagerTabBar" width="316" height="684"/>
+</p>
+
 ## Usage
 
 ```swift
