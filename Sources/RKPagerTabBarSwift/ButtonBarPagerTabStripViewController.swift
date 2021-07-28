@@ -59,6 +59,7 @@ public struct ButtonBarPagerTabStripSettings {
         public var buttonBarItemsShouldFillAvailableWidth = true
         // only used if button bar is created programaticaly and not using storyboards or nib files
         public var buttonBarHeight: CGFloat?
+        public var insetCells: CGFloat = .zero
     }
 
     public var style = Style()
@@ -273,7 +274,7 @@ open class ButtonBarPagerTabStripViewController: PagerTabStripViewController, Pa
         guard let cellWidthValue = cachedCellWidths?[indexPath.row] else {
             fatalError("cachedCellWidths for \(indexPath.row) must not be nil")
         }
-        return CGSize(width: cellWidthValue, height: collectionView.frame.size.height)
+        return CGSize(width: cellWidthValue, height: collectionView.frame.size.height - settings.style.insetCells)
     }
 
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
