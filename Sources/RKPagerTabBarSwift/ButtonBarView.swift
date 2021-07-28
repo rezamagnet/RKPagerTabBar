@@ -99,8 +99,8 @@ open class ButtonBarView: UICollectionView {
 
         var targetFrame = fromFrame
         targetFrame.size.height = selectedBar.frame.size.height
-        targetFrame.size.width += (toFrame.size.width - fromFrame.size.width) * progressPercentage
-        targetFrame.origin.x += (toFrame.origin.x - fromFrame.origin.x) * progressPercentage
+        targetFrame.size.width += (toFrame.size.width - fromFrame.size.width) * progressPercentage - (selectedBarInset * 2)
+        targetFrame.origin.x += (toFrame.origin.x - fromFrame.origin.x) * progressPercentage + selectedBarInset
 
         selectedBar.frame = CGRect(x: targetFrame.origin.x, y: selectedBar.frame.origin.y, width: targetFrame.size.width, height: selectedBar.frame.size.height)
 
