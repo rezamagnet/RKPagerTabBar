@@ -91,6 +91,8 @@ open class ButtonBarPagerTabStripViewController: PagerTabStripViewController, Pa
         delegate = self
         datasource = self
     }
+    
+    private let defaultImageSize: CGFloat = 35
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,12 +105,14 @@ open class ButtonBarPagerTabStripViewController: PagerTabStripViewController, Pa
         }
         
         buttonBarItemSpec = .nibFile(nibName: "ButtonCell", bundle: .module, width: { [weak self] (childItemInfo) -> CGFloat in
+            guard let self = self else { return .zero }
                 let label = UILabel()
                 label.translatesAutoresizingMaskIntoConstraints = false
-                label.font = self?.settings.style.buttonBarItemFont
+                label.font = self.settings.style.buttonBarItemFont
                 label.text = childItemInfo.title
                 let labelSize = label.intrinsicContentSize
-                return labelSize.width + (self?.settings.style.buttonBarItemLeftRightMargin ?? 8) * 2
+            let imageSize = childItemInfo.image == nil ? .zero : ((childItemInfo.imageScale ?? self.defaultImageSize) + 2)
+            return labelSize.width + self.settings.style.buttonBarItemLeftRightMargin * 2 + imageSize
         })
 
         let buttonBarViewAux = buttonBarView ?? {
@@ -317,13 +321,20 @@ open class ButtonBarPagerTabStripViewController: PagerTabStripViewController, Pa
         let indicatorInfo = childController.indicatorInfo(for: self)
 
         cell.label.text = indicatorInfo.title
+        
+        cell.label.isHidden = indicatorInfo.title == nil
+        
         cell.label.font = settings.style.buttonBarItemFont
         cell.label.textColor = settings.style.buttonBarItemTitleColor ?? cell.label.textColor
         cell.contentView.backgroundColor = settings.style.buttonBarItemBackgroundColor ?? cell.contentView.backgroundColor
         cell.backgroundColor = settings.style.buttonBarItemBackgroundColor ?? cell.backgroundColor
         if let image = indicatorInfo.image {
             cell.imageView.image = image
+            cell.imageScaleConstraint.constant = indicatorInfo.imageScale ?? defaultImageSize
         }
+        
+        cell.imageView.isHidden = indicatorInfo.image == nil
+        
         if let highlightedImage = indicatorInfo.highlightedImage {
             cell.imageView.highlightedImage = highlightedImage
         }

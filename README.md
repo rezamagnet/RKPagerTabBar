@@ -42,21 +42,44 @@ class ViewController: ButtonBarPagerTabStripViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
+        
+        changeCurrentIndexProgressive = { oldCell, newCell, progressPercentage, changeCurrentIndex, animated in
+            
+            oldCell?.layer.cornerRadius = 16
+            newCell?.layer.cornerRadius = 16
+        }
+        
+    }
+    
+    override func viewDidLoad() {
+        collectionView.selectedBarInset = 8
+        collectionView.selectedBar.layer.cornerRadius = 4
+        collectionView.selectedBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        settings.style.insetCells = 16
+        settings.style.buttonBarBackgroundColor = .white
+        settings.style.buttonBarLeftContentInset = 8
+        settings.style.buttonBarRightContentInset = 8
+        settings.style.selectedBarBackgroundColor = .blue
+        super.viewDidLoad()
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         [
+            TestViewController(),
+            TestViewController(),
+            TestViewController(),
             TestViewController(),
             TestViewController()
         ]
     }
 }
 
+
 // MARK: -Conform to IndicatorInfoProvider for children view controllers
 class TestViewController: UIViewController, IndicatorInfoProvider {
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        IndicatorInfo(title: "TestTitle")
+        IndicatorInfo(title: "TestTitle", image: .init(systemName: "pencil.slash"), imageScale: 20)
     }
     
     override func viewDidLoad() {
@@ -64,6 +87,7 @@ class TestViewController: UIViewController, IndicatorInfoProvider {
         view.backgroundColor = .red
     }
 }
+
 
 
 

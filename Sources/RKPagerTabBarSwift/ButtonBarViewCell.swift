@@ -29,6 +29,8 @@ open class ButtonBarViewCell: UICollectionViewCell {
 
     @IBOutlet open var imageView: UIImageView!
     @IBOutlet open var label: UILabel!
+    @IBOutlet open var stackView: UIStackView!
+    @IBOutlet weak var imageScaleConstraint: NSLayoutConstraint!
     
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
