@@ -46,7 +46,7 @@ class ViewController: ButtonBarPagerTabStripViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        
+        // MARK: -Customization for cells
         changeCurrentIndexProgressive = { oldCell, newCell, progressPercentage, changeCurrentIndex, animated in
             
             oldCell?.layer.cornerRadius = 16
@@ -64,9 +64,10 @@ class ViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarLeftContentInset = 8
         settings.style.buttonBarRightContentInset = 8
         settings.style.selectedBarBackgroundColor = .blue
+        // MARK: -Add your customization before super.viewDidLoad()
         super.viewDidLoad()
     }
-    
+    // MARK: -Add your controllers
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         [
             TestViewController(),
