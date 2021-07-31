@@ -92,10 +92,12 @@ class TestViewController: UIViewController, IndicatorInfoProvider {
         view.backgroundColor = .red
     }
 }
-
-
-
-
 ```
 
+for changing current index:
+
+```swift
+    currentIndex = 1
+    super.viewDidLoad()
+```
 
